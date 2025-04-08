@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact - StepCrafters</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://kit.fontawesome.com/9c749cac5e.js" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+</head>
+<style>
+     @media (max-width: 992px ){
+        .header {
+                display: flex;
+                text-align: center;
+                padding: 10px;
+            }
+            .header-nav {
+                display: none;
+                flex-direction: column;
+                text-align: center;
+                background: #111;
+                position: absolute;
+                top: 70px;
+                left: 0;
+                width: 100%;
+                padding: 10px 0;
+                box-shadow: 0 2px 5px rgba(255, 255, 255, 0.2);
+                animation: StepIn 0.5s ease-in-out;
+            }
+
+            @keyframes StepIn {
+            from {
+                opacity: 0;
+                transform: translateY(-5px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+            }
+
+            .header-nav ul {
+                flex-direction: column;
+                gap: 20px; 
+                
+            }
+            .menu-toggle {
+            display: block;
+            cursor: pointer;
+            font-size: 30px;
+            color: white;
+            padding: 10px;
+            transition: transform 0.5s ease-in-out;
+        }
+        .menu-toggle:hover {
+                transform: scale(1.1);
+                color: #1e90ff;
+                transform: rotate(90deg);
+            }
+            .menu-toggle:active {
+                transform: rotate(-180deg);
+            }
+            .sicon-container{
+                display: flex;
+                flex-wrap: wrap;
+                width: auto;
+                height: auto;
+                
+                transform: none;
+
+            }
+            .sicon{
+                margin: 0 auto;
+                width: auto;
+                height: auto;
+                padding-top: 15px;
+            }
+
+            
+            
+
+     }
+
+     @media (max-width: 350px){
+        .hero{
+            padding-top: 90px;
+        }
+
+}
+
+     @media (max-width: 200px){
+        .header{
+            flex-direction: column;
+        }
+
+        .header-nav{
+            transform: translateY(60px);
+            text-align: center;
+            width: 100%;
+            padding-left: unset;
+            transition: transform 0.5s ease-in-out
+        }
+        .contact{
+                height: 600px !important;
+                
+            }
+            .contact .details{
+                width: auto;
+                margin: 0 auto;
+                transform: unset;
+                padding-top: 140px ;
+            }
+            .contact p{
+                width: auto;
+                height: auto;
+                text-align: center;
+                text-wrap: wrap ;
+            }
+
+            .info{
+                height: auto;
+                width: auto;
+                margin: 0 auto;
+            }
+    }
+</style>
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        const menuToggle = document.querySelector(".menu-toggle");
+        const navMenu = document.querySelector(".header-nav");
+        
+        menuToggle.addEventListener("click", function() {
+            if (navMenu.style.display === "none" || navMenu.style.display === "") {
+                navMenu.style.display = "block";
+            } else {
+                navMenu.style.display = "none";
+            }
+        });
+
+        window.addEventListener("resize", function() {
+            if (window.innerWidth >= 993) {
+                navMenu.style.display = "flex";
+            } else {
+                navMenu.style.display = "none";
+            }
+        });
+    });
+</script>
+<body>
+
+    <header class="header d-flex justify-content-between align-items-center p-3 bg-dark text-white pos-fixed">
+        <div class="logo">
+            <img src="img/logo.jpg" alt="Step Crafters" height="50">
+            <h2>Step <span>Crafters</span></h2>
+        </div>
+        <span class="menu-toggle">&#9776;</span>
+        <div class="header-nav">
+            <ul>
+                <li><a href="index.html" >Home</a></li>
+                <li><a href="about.html"  >About us</a></li>
+                <li><a href="product.html">Product</a></li>
+                <li><a href="contact.html" class="active">Contact Us</a></li>
+                <a href="order.html"><i class="fa-solid fa-cart-shopping"></i></a>
+                
+            </ul>
+        </div>
+    </header>
+
+    <section class="contact bg-dark text-white text-center p-4">
+        <div class="details">
+        <h2>Contact Us</h2>
+        <p>Email: contact@stepcrafters.com</p>
+        <p>Phone: +1 (234) 567-890</p>
+        <p>Address: 123 Shoe Street, Fashion City</p>
+    </div>
+    </section>
+    
+    <section class="info">
+    <div class="container mt-5">
+        <h2 class="text-center">Send Us a Message</h2>
+        <form>
+            <div class="mb-3">
+                <label for="name" class="form-label">Full Name</label>
+                <input type="text" class="form-control" id="name" placeholder="Enter your name" required>
+            </div>
+            <div class="mb-3">
+                <label for="email" class="form-label">Email address</label>
+                <input type="email" class="form-control" id="email" placeholder="Enter your email" required>
+            </div>
+            <div class="mb-3">
+                <label for="message" class="form-label">Message</label>
+                <textarea class="form-control" id="message" rows="4" placeholder="Your message" required></textarea>
+            </div>
+            <button type="submit" class="btn bton-primary">Send Message</button>
+        </form>
+    </div>
+    
+    <div class="sicon-container">
+      <a href="https://www.linkedin.com/" class="sicon" style="--color: #0072b1;">
+          <i class="fa-brands fa-linkedin-in"></i>
+      </a>
+      <a href="https://www.instagram.com/dn_brnsa?igsh=ZjB2dmt3N3llZW82" class="sicon" style="--color: #E1306C;">
+          <i class="fa-brands fa-instagram"></i>
+      </a>
+      <a href="https://www.tiktok.com/@ariesqt_03?_t=ZS-8ueQERKexjM&_r=1" class="sicon" style="--color: #FF0050;">
+          <i class="fa-brands fa-tiktok"></i>
+      </a>
+      <a href="https://www.facebook.com/share/1XBr1uYNWp/" class="sicon" style="--color: #1877F2;">
+          <i class="fa-brands fa-facebook-f"></i>
+      </a>
+    </div>
+</section>
+
+<section class="foot text-center">
+    <p>&copy; 2025 Step Crafters. All Rights Reserved.</p>
+</section>
+
+
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+    // Page fade-in animation
+    gsap.from("body", {
+        opacity: 0,
+        duration: 0.8,
+        ease: "power2.out"
+    });
+
+    // Header animation
+    gsap.from("header", {
+        opacity: 0,
+        y: -20,
+        duration: 1,
+        delay: 0.2,
+        ease: "power3.out"
+    });
+
+    // Section animations
+    gsap.utils.toArray("section").forEach((section, index) => {
+        gsap.from(section, {
+            opacity: 0,
+            y: 50,
+            duration: 1,
+            delay: 0.5 + index * 0.3,
+            ease: "power3.out",
+            scrollTrigger: {
+                trigger: section,
+                start: "top 80%",
+                toggleActions: "play none none none"
+            }
+        });
+    });
+
+    // Footer animation
+    gsap.fromTo("footer", 
+        { opacity: 0, y: 20 }, 
+        { opacity: 1, y: 0, duration: 1, delay: 1, ease: "power3.out" }
+    );
+});
+
+</script>
+</body>
+</html>

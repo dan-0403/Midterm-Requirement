@@ -1,0 +1,759 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product - StepCrafters</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" defer></script>
+    <script src="https://kit.fontawesome.com/9c749cac5e.js" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+</head>
+<style>
+   @media (max-width: 992px) {
+    .product-hero{
+            padding-top: 100px !important;
+            padding: 0 10px;
+        }
+
+    .header {
+                display: flex;
+                text-align: center;
+                padding: 10px;
+            }
+            .header-nav {
+                display: none;
+                flex-direction: column;
+                text-align: center;
+                background: #111;
+                position: absolute;
+                top: 70px;
+                left: 0;
+                width: 100%;
+                padding: 10px 0;
+                box-shadow: 0 2px 5px rgba(255, 255, 255, 0.2);
+                animation: StepIn 0.5s ease-in-out;
+            }
+
+            @keyframes StepIn {
+            from {
+                opacity: 0;
+                transform: translateY(-5px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+            }
+
+            .header-nav ul {
+                flex-direction: column;
+                gap: 20px; 
+                
+            }
+            .menu-toggle {
+            display: block;
+            cursor: pointer;
+            font-size: 30px;
+            color: white;
+            padding: 10px;
+            transition: transform 0.5s ease-in-out;
+        }
+        .menu-toggle:hover {
+                transform: scale(1.1);
+                color: #1e90ff;
+                transform: rotate(90deg);
+            }
+            .menu-toggle:active {
+                transform: rotate(-180deg);
+            }
+/* Product Section */
+.product-container {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    height: auto;
+    width: auto;
+    margin-top: 30px;
+}
+
+.product-image-container {
+    width: auto;
+    height: auto;
+    text-align: center;
+}
+
+.product-image-container img {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+    margin: 0 auto;
+}
+
+.product-hero p{
+    width: auto;
+}
+
+.product-details {
+    margin-top: 0;
+    flex: 1 1;
+    text-align: center;
+    transform: translateY(-100px);
+}
+
+.price {
+    font-size: 1.5rem;
+    
+}
+
+.size-btn {
+
+    margin: 0 auto;
+    cursor: pointer;
+    width: auto;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.buy-now {
+    background: #e44d26;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+/* Footer */
+footer {
+    background: #000;
+    color: white;
+    text-align: center;
+    padding: 10px;
+    margin-top: 20px;
+}
+}
+/* Responsive Styles */
+@media (max-width: 330px) {
+    .sizes{
+       display: flex;
+       flex-wrap: wrap;
+    }
+}
+
+@media (max-width: 350px){
+        
+}
+
+@media (max-width: 200px){
+    .product-hero{
+        padding-top: 180px !important;
+        height: auto;
+    }
+    .btn{
+        width: auto;
+    }
+    .offers{
+        width: auto;
+        height: auto;
+    }
+    .header{
+            flex-direction: column;
+        }
+
+        .header-nav{
+            transform: translateY(60px);
+            text-align: center;
+            width: 100%;
+            padding-left: unset;
+            transition: transform 0.5s ease-in-out
+        }
+}
+
+</style>
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        const menuToggle = document.querySelector(".menu-toggle");
+        const navMenu = document.querySelector(".header-nav");
+        
+        menuToggle.addEventListener("click", function() {
+            if (navMenu.style.display === "none" || navMenu.style.display === "") {
+                navMenu.style.display = "block";
+            } else {
+                navMenu.style.display = "none";
+            }
+        });
+
+        window.addEventListener("resize", function() {
+            if (window.innerWidth >= 993) {
+                navMenu.style.display = "flex";
+            } else {
+                navMenu.style.display = "none";
+            }
+        });
+    });
+</script>
+<body>
+
+    <header class="header d-flex justify-content-between align-items-center p-3 bg-dark text-white pos-fixed">
+        <div class="logo">
+            <img src="img/logo.jpg" alt="Step Crafters" height="50">
+            <h2>Step <span>Crafters</span></h2>
+        </div>
+        <span class="menu-toggle">&#9776;</span>
+        <div class="header-nav">
+            <ul>
+                <li><a href="index.html" >Home</a></li>
+                <li><a href="about.html" >About us</a></li>
+                <li><a href="product.html" class="active">Product</a></li>
+                <li><a href="contact.html">Contact Us</a></li>
+                <a href="order.html"><i class="fa-solid fa-cart-shopping"></i></a>
+                
+            </ul>
+        </div>
+    </header>
+
+    <section class="product-hero text-center bg-dark d-flex flex-column align-items-center justify-content-center">
+        <h1>Enjoy Shopping at Step Crafters!</h1>
+        <p>"Step into style and comfort, because the perfect pair is just a click away! Keep walking, keep shopping, and discover shoes that match your every move. Your dream shoes are waiting, so why stop now?"</p>
+    </section>
+
+
+<section id="product1">
+    <div id="product-container" class="product-container">
+        <div class="product-image-container">
+            <img id="product-image" src="img/f1.png" class="product-image" alt="Nike Shoe">
+        </div>
+        <div class="product-details">
+            <h2 id="product-brand">NIKE</h2>
+            <p id="product-name" class="product-name">LeBron XXII 'Limelight' EP</p>
+            <h3 id="product-price" class="price">$ 103.59</h3>
+            <p class="discount">MRP <s>$ 129.49</s> (20% off)</p>
+            <p class="size-title">Select size (UK):</p>
+            <div class="sizes">
+                <button class="size-btn">36</button>
+                <button class="size-btn">37</button>
+                <button class="size-btn">38</button>
+                <button class="size-btn">39</button>
+                <button class="size-btn">40</button>
+                <button class="size-btn">42</button>
+                <button class="size-btn">44</button>
+            </div>
+            <a id="buy-now" href="buy.html"><button class="buy-now"> BUY NOW</button></a>
+            <div class="offers">
+                <p><strong>Offers:</strong></p>
+                <p class="offer-text"><span class="discount-text">Free Shipping Voucher</span> - Use code <strong>SHIPPING2Free</strong></p>
+                <p class="offer-text">Basketball Shoes Special: Buy 2, get 1 free Molten Basketball</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id="product2">
+    <div id="product-container" class="product-container">
+        <div class="product-image-container">
+            <img id="product-image" src="img/f2.png" class="product-image" alt="Nike Shoe">
+        </div>
+        <div class="product-details">
+            <h2 id="product-brand">JORDAN</h2>
+            <p id="product-name" class="product-name">Tatum 3 PF 'Zen'</p>
+            <h3 id="product-price" class="price">$ 74.99</h3>
+            <p class="discount">MRP <s>$ 99.99</s> (25% off)</p>
+            <p class="size-title">Select size (UK):</p>
+            <div class="sizes">
+                <button class="size-btn">36</button>
+                <button class="size-btn">37</button>
+                <button class="size-btn">38</button>
+                <button class="size-btn">39</button>
+                <button class="size-btn">40</button>
+                <button class="size-btn">42</button>
+                <button class="size-btn">44</button>
+            </div>
+            <a id="buy-now" href="buy.html"><button class="buy-now"> BUY NOW</button></a>
+            <div class="offers">
+                <p><strong>Offers:</strong></p>
+                <p class="offer-text"><span class="discount-text">Free Shipping Voucher</span> - Use code <strong>SHIPPING2Free</strong></p>
+                <p class="offer-text">Basketball Shoes Special: Buy 2, get 1 free Molten Basketball</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id="product3">
+    <div class="product-container">
+        <div  class="product-image-container">
+            <img id="product-image" src="img/f3.png" class="product-image" alt="Nike Shoe">
+        </div>
+        <div class="product-details">
+            <h2 id="product-brand">NIKE</h2>
+            <p id="product-name" class="product-name">Air Jordan 1 Low OG 'Oxidised Green'</p>
+            <h3 id="product-price" class="price">$ 62.99</h3>
+            <p class="discount">MRP <s>$ 89.99</s> (30% off)</p>
+            <p class="size-title">Select size (UK):</p>
+            <div class="sizes">
+                <button class="size-btn">36</button>
+                <button class="size-btn">37</button>
+                <button class="size-btn">38</button>
+                <button class="size-btn">39</button>
+                <button class="size-btn">40</button>
+                <button class="size-btn">42</button>
+                <button class="size-btn">44</button>
+            </div>
+            <a id="buy-now" href="buy.html"><button class="buy-now"> BUY NOW</button></a>
+            <div class="offers">
+                <p><strong>Offers:</strong></p>
+                <p class="offer-text"><span class="discount-text">Free Shipping Voucher</span> - Use code <strong>SHIPPING2Free</strong></p>
+                <p class="offer-text">Basketball Shoes Special: Buy 2, get 1 free Molten Basketball</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id="product4">
+    <div class="product-container">
+        <div class="product-image-container">
+            <img id="product-image" src="img/prod4.png" class="product-image" alt="Nike Shoe">
+        </div>
+        <div class="product-details">
+            <h2 id="product-brand">NIKE</h2>
+            <p id="product-name" class="product-name">Sabrina 2 EP x TITAN</p>
+            <h3 id="product-price" class="price">$ 129.49</h3>
+            <p class="discount">Free shipping</p>
+            <p class="size-title">Select size (UK):</p>
+            <div class="sizes">
+                <button class="size-btn">36</button>
+                <button class="size-btn">37</button>
+                <button class="size-btn">38</button>
+                <button class="size-btn">39</button>
+                <button class="size-btn">40</button>
+                <button class="size-btn">42</button>
+                <button class="size-btn">44</button>
+            </div>
+            <a id="buy-now" href="buy.html"><button class="buy-now"> BUY NOW</button></a>
+            <div class="offers">
+                <p><strong>Offers:</strong></p>
+                <p class="offer-text"><span class="discount-text">Free Shipping Voucher</span> - Use code <strong>SHIPPING2Free</strong></p>
+                <p class="offer-text">Basketball Shoes Special: Buy 2, get 1 free Molten Basketball</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id="product5">
+    <div class="product-container">
+        <div class="product-image-container">
+            <img id="product-image" src="img/prod5.png" class="product-image" alt="Nike Shoe">
+        </div>
+        <div class="product-details">
+            <h2 id="product-brand">NIKE</h2>
+            <p id="product-name" class="product-name">G.T. Cut 3 EP</p>
+            <h3 id="product-price" class="price">$ 90.72</h3>
+            <p class="discount">MRP <s>$ 95.49</s> (5% off)</p>
+            <p class="size-title">Select size (UK):</p>
+            <div class="sizes">
+                <button class="size-btn">36</button>
+                <button class="size-btn">37</button>
+                <button class="size-btn">38</button>
+                <button class="size-btn">39</button>
+                <button class="size-btn">40</button>
+                <button class="size-btn">42</button>
+                <button class="size-btn">44</button>
+            </div>
+            <a id="buy-now" href="buy.html"><button class="buy-now"> BUY NOW</button></a>
+            <div class="offers">
+                <p><strong>Offers:</strong></p>
+                <p class="offer-text"><span class="discount-text">Free Shipping Voucher</span> - Use code <strong>SHIPPING2Free</strong></p>
+                <p class="offer-text">Basketball Shoes Special: Buy 2, get 1 free Molten Basketball</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id="product6">
+    <div class="product-container">
+        <div class="product-image-container">
+            <img id="product-image" src="img/prod6.webp" class="product-image" alt="Nike Shoe">
+        </div>
+        <div class="product-details">
+            <h2 id="product-brand">ANTA</h2>
+            <p id="product-name" class="product-name">KAI 1 SPEED "Celestial Guardian"</p>
+            <h3 id="product-price" class="price">$ 112.05</h3>
+            <p class="discount">MRP <s>$ 125.00</s> (10% off)</p>
+            <p class="size-title">Select size (UK):</p>
+            <div class="sizes">
+                <button class="size-btn">36</button>
+                <button class="size-btn">37</button>
+                <button class="size-btn">38</button>
+                <button class="size-btn">39</button>
+                <button class="size-btn">40</button>
+                <button class="size-btn">42</button>
+                <button class="size-btn">44</button>
+            </div>
+            <a id="buy-now" href="buy.html"><button class="buy-now"> BUY NOW</button></a>
+            <div class="offers">
+                <p><strong>Offers:</strong></p>
+                <p class="offer-text"><span class="discount-text">Free Shipping Voucher</span> - Use code <strong>SHIPPING2Free</strong></p>
+                <p class="offer-text">Basketball Shoes Special: Buy 2, get 1 free Molten Basketball</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id="product7">
+    <div class="product-container">
+        <div class="product-image-container">
+            <img id="product-image" src="img/prod7.webp" class="product-image" alt="Nike Shoe">
+        </div>
+        <div class="product-details">
+            <h2 id="product-brand">ANTA</h2>
+            <p id="product-name" class="product-name">KT9</p>
+            <h3 id="product-price" class="price">$ 78.00</h3>
+            <p class="discount">MRP <s>$ 130.00</s> (40% off)</p>
+            <p class="size-title">Select size (UK):</p>
+            <div class="sizes">
+                <button class="size-btn">36</button>
+                <button class="size-btn">37</button>
+                <button class="size-btn">38</button>
+                <button class="size-btn">39</button>
+                <button class="size-btn">40</button>
+                <button class="size-btn">42</button>
+                <button class="size-btn">44</button>
+            </div>
+            <a id="buy-now" href="buy.html"><button class="buy-now"> BUY NOW</button></a>
+            <div class="offers">
+                <p><strong>Offers:</strong></p>
+                <p class="offer-text"><span class="discount-text">Free Shipping Voucher</span> - Use code <strong>SHIPPING2Free</strong></p>
+                <p class="offer-text">Basketball Shoes Special: Buy 2, get 1 Molten Basketball</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id="product8">
+    <div class="product-container">
+        <div class="product-image-container">
+            <img id="product-image" src="img/prod8.avif" class="product-image" alt="Nike Shoe">
+        </div>
+        <div class="product-details">
+            <h2 id="product-brand">ADIDAS</h2>
+            <p id="product-name" class="product-name">Anthony Edwards 1 Low Trainers</p>
+            <h3 id="product-price" class="price">$ 128.56</h3>
+            <p class="discount">MRP <s>$ 142.85</s> (10% off)</p>
+            <p class="size-title">Select size (UK):</p>
+            <div class="sizes">
+                <button class="size-btn">36</button>
+                <button class="size-btn">37</button>
+                <button class="size-btn">38</button>
+                <button class="size-btn">39</button>
+                <button class="size-btn">40</button>
+                <button class="size-btn">42</button>
+                <button class="size-btn">44</button>
+            </div>
+            <a id="buy-now" href="buy.html"><button class="buy-now"> BUY NOW</button></a>
+            <div class="offers">
+                <p><strong>Offers:</strong></p>
+                <p class="offer-text"><span class="discount-text">Free Shipping Voucher</span> - Use code <strong>SHIPPING2Free</strong></p>
+                <p class="offer-text">Basketball Shoes Special: Buy 2, get 1 free Molten Basketball</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id="product9">
+    <div class="product-container">
+        <div class="product-image-container">
+            <img id="product-image" src="img/prod9.avif" class="product-image" alt="Nike Shoe">
+        </div>
+        <div class="product-details">
+            <h2 id="product-brand">ADIDAS</h2>
+            <p id="product-name" class="product-name">Harden Volume 9 Shoes</p>
+            <h3 id="product-price" class="price">$ 152.68</h3>
+            <p class="discount">MRP <s>$ 169.65</s> (10% off)</p>
+            <p class="size-title">Select size (UK):</p>
+            <div class="sizes">
+                <button class="size-btn">36</button>
+                <button class="size-btn">37</button>
+                <button class="size-btn">38</button>
+                <button class="size-btn">39</button>
+                <button class="size-btn">40</button>
+                <button class="size-btn">42</button>
+                <button class="size-btn">44</button>
+            </div>
+            <a id="buy-now" href="buy.html"><button class="buy-now"> BUY NOW</button></a>
+            <div class="offers">
+                <p><strong>Offers:</strong></p>
+                <p class="offer-text"><span class="discount-text">Free Shipping Voucher</span> - Use code <strong>SHIPPING2Free</strong></p>
+                <p class="offer-text">Basketball Shoes Special: Buy 2, get 1 free Molten Basketball</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id="product10">
+    <div class="product-container">
+        <div class="product-image-container">
+            <img id="product-image" src="img/prod10.avif" class="product-image" alt="Nike Shoe">
+        </div>
+        <div class="product-details">
+            <h2 id="product-brand">ADIDAS</h2>
+            <p id="product-name" class="product-name">Dame Certified 3 Shoes</p>
+            <h3 id="product-price" class="price">$ 93.21</h3>
+            <p class="discount">MRP <s>$ 103.55</s> (10% off)</p>
+            <p class="size-title">Select size (UK):</p>
+            <div class="sizes">
+                <button class="size-btn">36</button>
+                <button class="size-btn">37</button>
+                <button class="size-btn">38</button>
+                <button class="size-btn">39</button>
+                <button class="size-btn">40</button>
+                <button class="size-btn">42</button>
+                <button class="size-btn">44</button>
+            </div>
+            <a id="buy-now" href="buy.html"><button class="buy-now"> BUY NOW</button></a>
+            <div class="offers">
+                <p><strong>Offers:</strong></p>
+                <p class="offer-text"><span class="discount-text">Free Shipping Voucher</span> - Use code <strong>SHIPPING2Free</strong></p>
+                <p class="offer-text">Basketball Shoes Special: Buy 2, get 1 free Molten Basketball</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id="product11">
+    <div class="product-container">
+        <div class="product-image-container">
+            <img id="product-image" src="img/prod11.png" class="product-image" alt="Nike Shoe">
+        </div>
+        <div class="product-details">
+            <h2 id="product-brand">NIKE/h2>
+            <p id="product-name" class="product-name">Air Force 1 '07 LV8</p>
+            <h3 id="product-price" class="price">$ 102.21</h3>
+            <p class="discount">MRP <s>$ 120.25</s> (15% off)</p>
+            <p class="size-title">Select size (UK):</p>
+            <div class="sizes">
+                <button class="size-btn">36</button>
+                <button class="size-btn">37</button>
+                <button class="size-btn">38</button>
+                <button class="size-btn">39</button>
+                <button class="size-btn">40</button>
+                <button class="size-btn">42</button>
+                <button class="size-btn">44</button>
+            </div>
+            <a id="buy-now" href="buy.html"><button class="buy-now"> BUY NOW</button></a>
+            <div class="offers">
+                <p><strong>Offers:</strong></p>
+                <p class="offer-text"><span class="discount-text">Free Shipping Voucher</span> - Use code <strong>SHIPPING2Free</strong></p>
+                <p class="offer-text">Basketball Shoes Special: Buy 2, get 1 free Molten Basketball</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id="product12">
+    <div class="product-container">
+        <div class="product-image-container">
+            <img id="product-image" src="img/prod12.png" class="product-image" alt="Nike Shoe">
+        </div>
+        <div class="product-details">
+            <h2 id="product-brand">NIKE</h2>
+            <p id="product-name" class="product-name">Shox R4</p>
+            <h3 id="product-price" class="price">$ 134.85</h3>
+            <p class="discount">MRP <s>$ 149.85</s> (10% off)</p>
+            <p class="size-title">Select size (UK):</p>
+            <div class="sizes">
+                <button class="size-btn">36</button>
+                <button class="size-btn">37</button>
+                <button class="size-btn">38</button>
+                <button class="size-btn">39</button>
+                <button class="size-btn">40</button>
+                <button class="size-btn">42</button>
+                <button class="size-btn">44</button>
+            </div>
+            <a id="buy-now" href="buy.html"><button class="buy-now"> BUY NOW</button></a>
+            <div class="offers">
+                <p><strong>Offers:</strong></p>
+                <p class="offer-text"><span class="discount-text">Free Shipping Voucher</span> - Use code <strong>SHIPPING2Free</strong></p>
+                <p class="offer-text">Basketball Shoes Special: Buy 2, get 1 free Molten Basketball</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id="product13">
+    <div class="product-container">
+        <div class="product-image-container">
+            <img id="product-image" src="img/prod13.png" class="product-image" alt="Nike Shoe">
+        </div>
+        <div class="product-details">
+            <h2 id="product-brand">NIKE</h2>
+            <p id="product-name" class="product-name">Air Max 90 Premium</p>
+            <h3 id="product-price" class="price">$ 126.1</h3>
+            <p class="discount">MRP <s>$ 140.10</s> (10% off)</p>
+            <p class="size-title">Select size (UK):</p>
+            <div class="sizes">
+                <button class="size-btn">36</button>
+                <button class="size-btn">37</button>
+                <button class="size-btn">38</button>
+                <button class="size-btn">39</button>
+                <button class="size-btn">40</button>
+                <button class="size-btn">42</button>
+                <button class="size-btn">44</button>
+            </div>
+            <a id="buy-now" href="buy.html"><button class="buy-now"> BUY NOW</button></a>
+            <div class="offers">
+                <p><strong>Offers:</strong></p>
+                <p class="offer-text"><span class="discount-text">Free Shipping Voucher</span> - Use code <strong>SHIPPING2Free</strong></p>
+                <p class="offer-text">Basketball Shoes Special: Buy 2, get 1 free Molten Basketball</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id="product14">
+    <div class="product-container">
+        <div class="product-image-container">
+            <img id="product-image" src="img/prod14.avif" class="product-image" alt="Nike Shoe">
+        </div>
+        <div class="product-details">
+            <h2 id="product-brand">ADIDAS</h2>
+            <p id="product-name" class="product-name">Samba OG Shoes</p>
+            <h3 id="product-price" class="price">$ 112.62</h3>
+            <p class="discount">MRP <s>$ 118.55</s> (5% off)</p>
+            <p class="size-title">Select size (UK):</p>
+            <div class="sizes">
+                <button class="size-btn">36</button>
+                <button class="size-btn">37</button>
+                <button class="size-btn">38</button>
+                <button class="size-btn">39</button>
+                <button class="size-btn">40</button>
+                <button class="size-btn">42</button>
+                <button class="size-btn">44</button>
+            </div>
+            <a id="buy-now" href="buy.html"><button class="buy-now"> BUY NOW</button></a>
+            <div class="offers">
+                <p><strong>Offers:</strong></p>
+                <p class="offer-text"><span class="discount-text">Free Shipping Voucher</span> - Use code <strong>SHIPPING2Free</strong></p>
+                <p class="offer-text">Basketball Shoes Special: Buy 2, get 1 free Molten Basketball</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id="product15">
+    <div class="product-container">
+        <div class="product-image-container">
+            <img id="product-image" src="img/prod15.avif" class="product-image" alt="Nike Shoe">
+        </div>
+        <div class="product-details">
+            <h2 id="product-brand">VANS</h2>
+            <p id="product-name" class="product-name">Skate Old Skool 36+ Shoe</p>
+            <h3 id="product-price" class="price">$ 76.00</h3>
+            <p class="discount">MRP <s>$ 80.00</s> (5% off)</p>
+            <p class="size-title">Select size (UK):</p>
+            <div class="sizes">
+                <button class="size-btn">36</button>
+                <button class="size-btn">37</button>
+                <button class="size-btn">38</button>
+                <button class="size-btn">39</button>
+                <button class="size-btn">40</button>
+                <button class="size-btn">42</button>
+                <button class="size-btn">44</button>
+            </div>
+            <a id="buy-now" href="buy.html"><button class="buy-now"> BUY NOW</button></a>
+            <div class="offers">
+                <p><strong>Offers:</strong></p>
+                <p class="offer-text"><span class="discount-text">Free Shipping Voucher</span> - Use code <strong>SHIPPING2Free</strong></p>
+                <p class="offer-text">Basketball Shoes Special: Buy 2, get 1 free Molten Basketball</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+    <footer class="text-center bg-black text-white p-3">
+        <p>&copy; 2025 Step Crafters. All Rights Reserved.</p>
+    </footer>
+
+    <script>
+        document.querySelectorAll(".buy-now").forEach(button => {
+    button.addEventListener("click", function(event) {
+        let productContainer = event.target.closest(".product-container"); 
+        let productBrand = productContainer.querySelector("#product-brand").textContent; // Get brand
+        let productName = productContainer.querySelector(".product-name").textContent;
+        let productPrice = productContainer.querySelector(".price").textContent;
+        let productImage = productContainer.querySelector(".product-image").src;
+        let selectedSize = productContainer.querySelector(".size-btn.active")?.textContent;
+
+        if (!selectedSize) {
+            alert("⚠️ Please select a size before proceeding to purchase.");
+            event.preventDefault(); // Prevent redirection if no size is selected
+            return;
+        }
+
+        let buyNowLink = productContainer.querySelector("a");
+        buyNowLink.href = `buy.html?brand=${encodeURIComponent(productBrand)}&name=${encodeURIComponent(productName)}&price=${encodeURIComponent(productPrice)}&image=${encodeURIComponent(productImage)}&size=${encodeURIComponent(selectedSize)}`;
+    });
+});
+    
+        // Add event listeners to size buttons to mark the selected size
+        document.querySelectorAll(".size-btn").forEach(button => {
+            button.addEventListener("click", function() {
+                let productContainer = this.closest(".product-container");
+                productContainer.querySelectorAll(".size-btn").forEach(btn => btn.classList.remove("active"));
+                this.classList.add("active");
+            });
+        });
+
+        document.addEventListener("DOMContentLoaded", function () {
+    // Page fade-in animation
+    gsap.from("body", {
+        opacity: 0,
+        duration: 0.8,
+        ease: "power2.out"
+    });
+
+    // Header animation
+    gsap.from("header", {
+        opacity: 0,
+        y: -20,
+        duration: 1,
+        delay: 0.2,
+        ease: "power3.out"
+    });
+
+    // About Hero Section Animation
+    gsap.from(".about-hero", {
+        opacity: 0,
+        scale: 0.9,
+        duration: 1.2,
+        delay: 0.4,
+        ease: "power3.out"
+    });
+
+    // Section animations
+    gsap.utils.toArray("section").forEach((section, index) => {
+        gsap.from(section, {
+            opacity: 0,
+            y: 50,
+            duration: 1,
+            delay: 0.5 + index * 0.3,
+            ease: "power3.out",
+            scrollTrigger: {
+                trigger: section,
+                start: "top 80%",
+                toggleActions: "play none none none"
+            }
+        });
+    });
+
+    // Footer animation
+    gsap.fromTo("footer", 
+        { opacity: 0, y: 20 }, 
+        { opacity: 1, y: 0, duration: 1, delay: 1, ease: "power3.out" }
+    );
+});
+
+    </script>
+</body>
+</html>

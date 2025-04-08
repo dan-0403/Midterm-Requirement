@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home - StepCrafters</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" defer></script>
+    <script src="https://kit.fontawesome.com/9c749cac5e.js" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+</head>
+<style>
+    @media (max-width: 992px ) {
+        .header {
+                display: flex;
+                text-align: center;
+                padding: 10px;
+            }
+            .header-nav {
+                display: none;
+                flex-direction: column;
+                text-align: center;
+                background: #111;
+                position: absolute;
+                top: 70px;
+                left: 0;
+                width: 100%;
+                padding: 10px 0;
+                box-shadow: 0 2px 5px rgba(255, 255, 255, 0.2);
+                animation: StepIn 0.5s ease-in-out;
+            }
+
+            @keyframes StepIn {
+            from {
+                opacity: 0;
+                transform: translateY(-5px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+            }
+
+            .header-nav ul {
+                flex-direction: column;
+                gap: 20px; 
+                
+            }
+            .menu-toggle {
+                display: block;
+                cursor: pointer;
+                font-size: 24px;
+                color: white;
+                padding: 10px;
+            }
+            .hero {
+                padding: 50px 20px;
+                height: auto;
+                width: auto;
+            }
+            .hero p {
+                
+                transform: none;
+                text-align: center;
+                margin:  auto;
+                width: auto;
+            }
+            .carousel-inner img {
+                height: auto;
+                max-height: 400px;
+                
+            }
+            .why-choose .row {
+                flex-wrap: wrap;
+            }
+            .why-choose .col-md-3 {
+                width: 100%;
+                margin-bottom: 15px;
+            }
+        
+        .menu-toggle {
+            display: block;
+            cursor: pointer;
+            font-size: 30px;
+            color: white;
+            padding: 10px;
+            transition: transform 0.5s ease-in-out;
+        }
+        .menu-toggle:hover {
+                transform: scale(1.1);
+                color: #1e90ff;
+                transform: rotate(90deg);
+            }
+            .menu-toggle:active {
+                transform: rotate(-180deg);
+            }
+            .hero{
+            padding-top: 90px;
+        }
+    }
+    @media (min-width: 993px) {
+        .menu-toggle {
+            display: none !important;
+        }
+        .header-nav {
+            display: flex !important;
+        }
+    }
+
+    @media (max-width: 450px){
+       
+
+}
+    
+    @media (max-width: 200px){
+        .header{
+            flex-direction: column;
+        }
+
+        .header-nav{
+            transform: translateY(60px);
+            text-align: center;
+            width: 100%;
+            padding-left: unset;
+            transition: transform 0.5s ease-in-out
+        }
+
+        .hero{
+    width: 100% !important;
+    padding-top: 100px;
+    height: auto;
+    }
+    }
+</style>
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        const menuToggle = document.querySelector(".menu-toggle");
+        const navMenu = document.querySelector(".header-nav");
+        
+        menuToggle.addEventListener("click", function() {
+            if (navMenu.style.display === "none" || navMenu.style.display === "") {
+                navMenu.style.display = "block";
+            } else {
+                navMenu.style.display = "none";
+            }
+        });
+
+        window.addEventListener("resize", function() {
+            if (window.innerWidth >= 993) {
+                navMenu.style.display = "flex";
+            } else {
+                navMenu.style.display = "none";
+            }
+        });
+    });
+</script>
+<body>
+    <header class="header d-flex justify-content-between align-items-center p-3 bg-dark text-white pos-fixed">
+        <div class="logo">
+            <img src="img/logo.jpg" alt="Step Crafters" height="50">
+            <h2>Step <span>Crafters</span></h2>
+        </div>
+        <span class="menu-toggle">&#9776;</span>
+        <div class="header-nav">
+            <ul>
+                <li><a href="index.html" class="active">Home</a></li>
+                <li><a href="about.html" >About us</a></li>
+                <li><a href="product.html">Product</a></li>
+                <li><a href="contact.html">Contact Us</a></li>
+                <a href="order.html"><i class="fa-solid fa-cart-shopping"></i></a>
+                
+            </ul>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="hero-inner">
+        <h1>Big Shoe Sale!</h1>
+        <p >Step into style and comfort with our premium collection of shoes, designed for every occasion.
+             Whether you're looking for trendy sneakers, elegant heels, or durable everyday wear, we have
+              the perfect pair for you. Walk with confidence—because great shoes take you great places!</p>
+        <a href="product.html" class="btn btn-warning">Shop Now</a>
+    </div>
+    </section>
+
+    <!-- Featured Products Carousel -->
+    <section class="featured my-5 text-center">
+        <h2>🔥 Limited-Time Offers 🔥</h2>
+        <div id="productCarousel" class="carousel slide" data-bs-ride="carousel">
+            <div class="carousel-inner">
+
+                <div class="carousel-item active">
+                    <div class="product">
+                        <a href="product.html#product1"><img src="img/f1.png" class="d-block mx-auto" alt="Running Shoes"></a>
+                        <h1>NIKE</h1>
+                        <h3>LeBron XXII 'Limelight' EP</h3>
+                        <span class="badge bg-success">Sale -20%</span>
+                        <p><del>$129.49</del> <strong>$103.59</strong></p>
+                    </div>
+                </div>
+
+                <div class="carousel-item">
+                    <div class="product">
+                       <a href="product.html#product2"><img src="img/f2.png" class="d-block mx-auto" alt="Casual Sneakers"></a>
+                        <h1>JORDAN</h1>
+                        <h3>Tatum 3 PF 'Zen'</h3>
+                        <span class="badge bg-success">Sale -25%</span>
+                        <p><del>$99.99</del> <strong>$74.99</strong></p>
+                    </div>
+                </div>
+
+                <div class="carousel-item">
+                    <div class="product">
+                        <a href="product.html#product3"><img src="img/f3.png" class="d-block mx-auto" alt="Formal Shoes"></a>
+                        <h1>NIKE</h1>
+                        <h3>Air Jordan 1 Low OG 'Oxidised Green'</h3>
+                        <span class="badge bg-success">Sale -30%</span>
+                        <p><del>$89.99</del> <strong>$62.99</strong></p>
+                    </div>
+                </div>
+            </div>
+
+            
+
+            <button class="carousel-control-prev" type="button" data-bs-target="#productCarousel" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon"></span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#productCarousel" data-bs-slide="next">
+                <span class="carousel-control-next-icon"></span>
+            </button>
+        </div>
+    </section>
+
+    <section id="why-choose-us" class="why-choose">
+        <div class="container text-center">
+            <h2>Why Choose <span class="brand">Step Crafters</span>?</h2>
+            <div class="row">
+                <div class="col-md-3">
+                    <i class="fas fa-shoe-prints icon"></i>
+                    <h3>Premium Quality</h3>
+                    <p>We use high-quality materials to craft comfortable and stylish shoes.</p>
+                </div>
+                <div class="col-md-3">
+                    <i class="fas fa-truck icon"></i>
+                    <h3>Fast & Free Shipping</h3>
+                    <p>Enjoy free shipping on orders over $50, delivered right to your doorstep.</p>
+                </div>
+                <div class="col-md-3">
+                    <i class="fas fa-smile icon"></i>
+                    <h3>Customer Satisfaction</h3>
+                    <p>Our customers love us! We offer easy returns and excellent support.</p>
+                </div>
+                <div class="col-md-3">
+                    <i class="fas fa-tags icon"></i>
+                    <h3>Affordable Prices</h3>
+                    <p>Get the best deals on stylish footwear without compromising on quality.</p>
+                </div>
+            
+            
+                <div class="col-md-3">
+                    <i class="fas fa-recycle icon"></i>
+                    <h3>Eco-Friendly</h3>
+                    <p>Our shoes are made with sustainable materials for a greener planet.</p>
+                </div>
+                <div class="col-md-3">
+                    <i class="fas fa-headset icon"></i>
+                    <h3>24/7 Support</h3>
+                    <p>Need help? Our support team is available around the clock.</p>
+                </div>
+                <div class="col-md-3">
+                    <i class="fas fa-certificate icon"></i>
+                    <h3>Authenticity Guaranteed</h3>
+                    <p>Every product is 100% authentic and sourced from top manufacturers.</p>
+                </div>
+                <div class="col-md-3">
+                    <i class="fas fa-gift icon"></i>
+                    <h3>Exclusive Offers</h3>
+                    <p>Subscribe to our newsletter for discounts and exclusive releases.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="foot text-center">
+        <p>&copy; 2025 Step Crafters. All Rights Reserved.</p>
+    </section>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+    // Page fade-in animation
+    gsap.from("body", {
+        opacity: 0,
+        duration: 0.8,
+        ease: "power2.out"
+    });
+
+    // Header animation
+    gsap.from("header", {
+        opacity: 0,
+        y: -20,
+        duration: 1,
+        delay: 0.2,
+        ease: "power3.out"
+    });
+
+    // About Hero Section Animation
+    gsap.from(".about-hero", {
+        opacity: 0,
+        scale: 0.9,
+        duration: 1.2,
+        delay: 0.4,
+        ease: "power3.out"
+    });
+
+    // Section animations
+    gsap.utils.toArray("section").forEach((section, index) => {
+        gsap.from(section, {
+            opacity: 0,
+            y: 50,
+            duration: 1,
+            delay: 0.5 + index * 0.3,
+            ease: "power3.out",
+            scrollTrigger: {
+                trigger: section,
+                start: "top 80%",
+                toggleActions: "play none none none"
+            }
+        });
+    });
+
+    // Footer animation
+    gsap.fromTo("footer", 
+        { opacity: 0, y: 20 }, 
+        { opacity: 1, y: 0, duration: 1, delay: 1, ease: "power3.out" }
+    );
+});
+
+    </script>
+</body>
+</html>

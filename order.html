@@ -1,0 +1,412 @@
+<!DOCTYPE html>  
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Order - StepCrafters</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" defer></script>
+    <script src="https://kit.fontawesome.com/9c749cac5e.js" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <style>
+        body {
+            background-color: #121212;
+            color: white;
+            animation: none;
+            height: 100vh;
+        }
+
+        html, body {
+    height: 100%;
+    margin: 0;
+}
+
+.wrapper {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh; /* Ensures the wrapper takes at least the full height of the viewport */
+}
+
+.container {
+    flex: 1; /* This allows the container to grow and take available space */
+}
+        .order-container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 40px;
+            flex-wrap: wrap;
+            margin-top: 50px;
+        }
+
+        .order-item:hover {
+    transform: scale(1.02);
+    box-shadow: 0 0 10px white, 0 0 10px white !important;
+}
+
+        .order-item {
+            display: flex;
+            align-items: center;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+            padding: 30px;
+            width: 95%;
+            max-width: 1200px;
+            transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+        }
+        .order-item img {
+            max-width: 420px;
+            border-radius: 10px;
+            margin-right: 30px;
+        }
+        .receipt {
+            background: white;
+            color: black;
+            padding: 20px;
+            border-radius: 10px;
+            width: 100%;
+            max-width: 500px;
+            box-shadow: 0px 0px 15px rgba(255, 255, 255, 0.3);
+            height: 100%;
+        }
+
+        .receipt span{
+            padding-top: 15px;
+        }
+        .receipt h2 {
+            font-size: 1.7rem;
+            font-weight: bold;
+            border-bottom: 2px solid black;
+            padding-bottom: 10px;
+            margin-bottom: 15px;
+            text-shadow: 2px 2.1px 2px gray, 2px 2.1px 2px gray !important;
+            color: black;
+            
+        }
+        .receipt p {
+            margin: 5px 0;
+            font-size: 1.2rem;
+        }
+        .receipt strong {
+            font-weight: bold;
+        }
+        .btn-danger {
+            margin-top: 10px;
+            width: 100%;
+        }
+
+        .mt-5{
+            padding-top: 50px !important;
+        }
+
+        .mt-4 h1 {
+            font-size: 26px;
+            color: white;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            text-align: center;
+            margin-bottom: 25px;
+            position: relative;
+            text-shadow: 0 0 2px #1e90ff, 0 0 10px #1e90ff;
+        }
+
+        /* Adding an underline effect to the title */
+        .mt-4 h1::after {
+            content: "";
+            display: block;
+            width: 100px;
+            height: 5px;
+            background: #007bff;
+            margin: 8px auto 0;
+            border-radius: 5px;
+            box-shadow: 1.5px 4px 5px black, 1.5px 4px 5px black ;
+        }
+        .footer{
+            position: sticky;
+            
+        }
+        @media (max-width: 1200px) {
+    .order-item {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .order-item img {
+        margin-right: 0;
+        margin-bottom: 20px;
+        width: 100%;
+        max-width: 100%;
+    }
+
+    .receipt {
+        max-width: 100%;
+    }
+}
+
+@media (max-width: 768px) {
+    .header {
+    display: flex;
+    text-align: center;
+    padding: 10px;
+    }
+    .header-nav {
+    display: none;
+    flex-direction: column;
+    text-align: center;
+    background: #111;
+    position: absolute;
+    top: 70px;
+    left: 0;
+    width: 100%;
+    padding: 10px 0;
+    box-shadow: 0 2px 5px rgba(255, 255, 255, 0.2);
+    animation: StepIn 0.5s ease-in-out;
+    }
+
+    @keyframes StepIn {
+    from {
+    opacity: 0;
+    transform: translateY(-5px);
+    }
+    to {
+    opacity: 1;
+    transform: translateY(0);
+    }
+    }
+
+    .header-nav ul {
+    flex-direction: column;
+    gap: 20px; 
+
+    }
+    .menu-toggle {
+    display: block;
+    cursor: pointer;
+    font-size: 30px;
+    color: white;
+    padding: 10px;
+    transition: transform 0.5s ease-in-out;
+    }
+
+    .menu-toggle:hover {
+    transform: scale(1.1);
+    color: #1e90ff;
+    transform: rotate(90deg);
+    }
+
+    .menu-toggle:active {
+    transform: rotate(-180deg);
+    }
+
+   
+}
+
+@media (max-width: 576px) {
+    
+
+    .logo img {
+        height: 40px;
+    }
+}
+
+@media (max-width: 200px){
+        .header{
+            flex-direction: column;
+        }
+
+        .header-nav{
+            transform: translateY(60px);
+            text-align: center;
+            width: 100%;
+            padding-left: unset;
+            transition: transform 0.5s ease-in-out
+        }
+
+        .receipt p{
+            font-size: 8px;
+        }
+        .receipt h2{
+            font-size: 10px;
+            font-weight: 200;
+        }
+        .btn-danger{
+            width: auto;
+            font-size: 8px;
+
+            
+        }
+        .btn{
+            padding: 1.5px !important;
+            text-align: center !important;
+            margin: 0 auto !important;
+            width: auto;
+        }
+    }
+
+    </style>
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const menuToggle = document.querySelector(".menu-toggle");
+            const navMenu = document.querySelector(".header-nav");
+            
+            menuToggle.addEventListener("click", function() {
+                if (navMenu.style.display === "none" || navMenu.style.display === "") {
+                    navMenu.style.display = "block";
+                } else {
+                    navMenu.style.display = "none";
+                }
+            });
+    
+            window.addEventListener("resize", function() {
+                if (window.innerWidth >= 993) {
+                    navMenu.style.display = "flex";
+                } else {
+                    navMenu.style.display = "none";
+                }
+            });
+        });
+    </script>
+</head>
+<body>
+        <div class="wrapper">
+            <header class="header d-flex justify-content-between align-items-center p-3 bg-dark text-white">
+                <div class="logo">
+                    <img src="img/logo.jpg" alt="Step Crafters" height="50">
+                    <h2>Step <span>Crafters</span></h2>
+                </div>
+                <span class="menu-toggle">&#9776;</span>
+                <div class="header-nav">
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="about.html">About us</a></li>
+                        <li><a href="product.html">Product</a></li>
+                        <li><a href="contact.html">Contact Us</a></li>
+                        <a href="order.html" class="active"><i class="fa-solid fa-cart-shopping"></i></a>
+                    </ul>
+                </div>
+            </header>
+    
+            <div class="container mt-5">
+                <div class="container mt-4">
+                    <h1 class="text-center text-white">Your Orders</h1>
+                </div>
+                <div id="order-container" class="order-container"></div>
+            </div>
+    
+            <footer class="text-center bg-black text-white p-3">
+                <p>&copy; 2025 Step Crafters. All Rights Reserved.</p>
+            </footer>
+        </div>
+    
+    <script>
+       window.onload = function () {
+            let orders = JSON.parse(localStorage.getItem("orders")) || [];
+            const orderContainer = document.getElementById("order-container");
+            
+            if (orders.length === 0) {
+                orderContainer.innerHTML = "<h2 class='text-center text-white'>No Orders Found</h2>";
+            } else {
+                orders.forEach((order, index) => {
+                    let paymentStatus = (order.paymentMethod === "gcash" || order.paymentMethod === "paypal" || order.paymentMethod === "credit-card") ? "Paid" : "Not Yet Paid";
+                    
+                    orderContainer.innerHTML += `
+                        <div class="order-item">
+                            <img src="${order.image}" alt="Product Image" class="img-fluid">
+                            <div class="receipt">
+                                <h2>Order Receipt<br> <span><i class="fa-solid fa-barcode"></i></span><span><i class="fa-solid fa-barcode"></i></span><span><i class="fa-solid fa-barcode"></i></span><span><i class="fa-solid fa-barcode"></i></span><span><i class="fa-solid fa-barcode"></i></span><span><i class="fa-solid fa-barcode"></i></span><span><i class="fa-solid fa-barcode"></i></span><span><i class="fa-solid fa-barcode"></i></span></h2>
+                                <p><strong>Brand:</strong> ${order.brand}</p>
+                                <p><strong>Name:</strong> ${order.name}</p>
+                                <p><strong>Price:</strong> ${order.price}</p>
+                                <p><strong>Size:</strong> ${order.size}</p>
+                                <p><strong>Customer:</strong> ${order.customerName}</p>
+                                <p><strong>Contact:</strong> ${order.contactNumber}</p>
+                                <p><strong>Address:</strong> ${order.address}</p>
+                                <p><strong>Payment Method:</strong> ${order.paymentMethod}</p>
+                                <p><strong>Payment Status:</strong> ${paymentStatus}</p>
+                                ${order.paymentNumber ? `<p><strong>PayMaya/Gcash Number:</strong> ${order.paymentNumber}</p>` : ""}
+                                ${order.paymentName ? `<p><strong>PayMaya/Gcash Name:</strong> ${order.paymentName}</p>` : ""}
+                                ${order.creditCardNumber ? `<p><strong>Credit Card Number:</strong> ${order.creditCardNumber}</p>` : ""}
+                                ${order.creditCardName ? `<p><strong>Credit Card Name:</strong> ${order.creditCardName}</p>` : ""}
+                                <p><strong>📦 Estimated Delivery:</strong> ${order.deliveryDate}</p>
+                                <button class="btn btn-danger" onclick="deleteOrder(${index})">Cancel Order</button>
+                            </div>
+                        </div>
+                    `;
+                });
+            }
+        };
+
+        function deleteOrder(index) {
+            let orders = JSON.parse(localStorage.getItem("orders")) || [];
+            orders.splice(index, 1);
+            localStorage.setItem("orders", JSON.stringify(orders));
+            location.reload();
+        }
+
+        document.addEventListener("DOMContentLoaded", function () {
+    // Page fade-in animation
+    gsap.from("body", {
+        opacity: 0,
+        duration: 0.8,
+        ease: "power2.out"
+    });
+
+    // Header animation
+    gsap.from("header", {
+        opacity: 0,
+        y: -20,
+        duration: 1,
+        delay: 0.2,
+        ease: "power3.out"
+    });
+
+    // Animate order container only if it exists
+    const orderContainer = document.querySelector(".order-container");
+    if (orderContainer) {
+        gsap.fromTo(orderContainer, 
+            { opacity: 0, y: 30 }, 
+            { opacity: 1, y: 0, duration: 1, delay: 0.5, ease: "power3.out" }
+        );
+    }
+
+    // Footer animation
+    gsap.fromTo("footer", 
+        { opacity: 0, y: 20 }, 
+        { opacity: 1, y: 0, duration: 1, delay: 0.7, ease: "power3.out" }
+    );
+
+    function applyAnimations() {
+        const orderItems = document.querySelectorAll(".order-item");
+        if (orderItems.length === 0) return;
+
+        gsap.fromTo(orderItems, 
+            { opacity: 0, scale: 0.9, y: 20 }, 
+            { opacity: 1, scale: 1, y: 0, duration: 0.8, stagger: 0.2, ease: "power3.out" }
+        );
+    }
+
+    function deleteOrder(index) {
+    const orderElement = document.getElementById(`order-${index}`);
+    
+    gsap.to(orderElement, {
+        opacity: 0,
+        y: 50,
+        duration: 0.5,
+        ease: "power2.inOut",
+        onComplete: () => {
+            let orders = JSON.parse(localStorage.getItem("orders")) || [];
+            orders.splice(index, 1);
+            localStorage.setItem("orders", JSON.stringify(orders));
+            orderElement.remove();
+        }
+    });
+}
+
+    // Use requestAnimationFrame for smoother execution
+    requestAnimationFrame(applyAnimations);
+});
+    </script>
+</body>
+</html>

@@ -1,0 +1,772 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Buy - StepCrafters</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" defer></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+</head>
+<style>
+body {
+    font-family: Arial, sans-serif;
+    background-color: #111;
+    margin: 0;
+    padding: 0;
+    /* animation: fadeIn 1s; */
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+.buy-container {
+    width: 1200px;
+    margin: 50px auto;
+    background: rgba(255, 255, 255, 0.1);
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    color: white;
+    gap: 30px;
+    box-shadow: 0 0 3px white, 0 0 10px white !important;
+}
+
+.buy-container h1{
+    color: white;
+    text-shadow: 0 0 2px #1e90ff, 0 0 10px #1e90ff;
+    font-weight: 600;
+}
+
+.buy-hero {
+    height: 250px;
+    background: url('img/buy.jpg') center/cover no-repeat gray;
+    background-blend-mode: overlay;
+    background-color: rgba(0, 0, 0, 0.6);
+    
+    color: white;
+    box-shadow: 0 0 3px white, 0 0 10px white;
+}
+
+.proceed{
+    margin-bottom: 20px;
+
+}
+
+h1.proceed::after {
+    content: "";
+    display: block;
+    width: 400px;
+    height: 3px;
+    background: white;
+    margin: 8px auto 0;
+    border-radius: 5px;
+    box-shadow:0 5px 15px 0 black , 0 5px 15px 0 black , 0 5px 15px 0 black;
+}
+
+.buy-hero h1{
+    color: white;
+    text-shadow: 0 0 2px #1e90ff, 0 0 10px #1e90ff;
+}
+
+.buy-hero p{
+    width: 500px;
+    font-family: sans-serif;
+    font-weight: 500;
+    text-shadow: 0 0 1px #1e90ff, 0 0 2px #1e90ff;
+}
+
+h2 {
+   
+    color: white;
+    font-weight: 500;
+    text-shadow: 4px 4px 4px black, 4px 4px 4px black, 4px 4px 4px black;
+}
+h3{
+    text-shadow: 4px 4px 4px black, 4px 4px 4px black, 4px 4px 4px black;
+}
+
+.buy-container p{
+    text-shadow: 4px 4px 4px black, 4px 4px 4px black, 4px 4px 4px black;
+}
+
+.buy-container h1{
+    text-shadow: 4px 4px 4px black, 4px 4px 4px black, 4px 4px 4px black;
+}
+
+.product-details {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.image-container {
+  overflow: hidden; /* Prevents overflow */
+  display: inline-block;
+  max-width: 600px;
+  margin-top: 20px; 
+}
+
+#product-image {
+  width: 100%; 
+  height: 680px;
+  transition: transform 0.3s ease-in-out; /* Smooth zoom effect */
+  border-radius: 20px !important;
+  padding-right: 30px !important;
+   
+  
+}
+
+#product-image:hover {
+  transform: scale(1.2); /* Zoom in effect */
+}
+
+.product-info {
+    font-size: 18px;
+    color: white;
+}
+
+#checkout-form {
+  background: rgba(0, 0, 0, 0.1); /* Light gray background */
+  padding: 20px;
+  border-radius: 10px; /* Rounded corners */
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1); /* Soft shadow */
+  max-width: 500px;
+  margin: auto;
+  margin-right: 15px;
+  box-shadow: 0 0 3px white, 0 0 10px white !important;
+  margin-top: 10px;
+}
+
+#checkout-form label {
+  font-weight: 500;
+  color: white;
+  font-size: 16px;
+}
+
+#checkout-form .form-control, 
+#checkout-form .form-select {
+  border-radius: 8px; /* Smooth input fields */
+  border: 1px solid #ced4da;
+  transition: 0.3s;
+}
+
+#checkout-form textarea{
+    font-size: 16px;
+    font-weight: 500;
+    color: black;
+}
+
+#checkout-form input{
+    font-size: 16px;
+    font-weight: 500;
+    color: black;
+}
+
+#checkout-form select{
+    font-size: 16px;
+    font-weight: 500;
+    color: black;
+}
+
+#checkout-form .form-control:focus, 
+#checkout-form .form-select:focus {
+  border-color: #007bff;
+  box-shadow: 0 0 2px white, 0 0 8px white;
+}
+
+#checkout-form button {
+  background: #007bff;
+  color: white;
+  border: none;
+  padding: 10px;
+  border-radius: 8px;
+  font-weight: 700;
+  transition: 0.3s;
+  width: 100%;
+  font-size: 18px;
+}
+
+#checkout-form button:hover {
+  background: #0056b3;
+  box-shadow: 0 0 2px white, 0 0 10px white;
+  
+}
+
+#payment-number-container, #credit-card-container, #gcash-number-container {
+  animation: StepIn 0.3s ease-in-out;
+}
+
+/* Smooth fade-in effect */
+@keyframes StepIn {
+  from {
+    opacity: 0;
+    transform: translateY(-5px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Fullscreen Overlay (Blocks all interactions) */
+#overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
+    z-index: 999; /* Ensures it's above everything */
+    display: none; /* Hidden by default */
+}
+
+/* Custom Alert Box Styling */
+.alert-box {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: black;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px white, 0 0 15px white !important;
+    text-align: center;
+    display: none; /* Hidden by default */
+    z-index: 1000; /* Above overlay */
+    flex-direction: column;
+    align-items: center;
+    border: 3px double white;
+    /* animation: fadeIn 0.5s ease-in-out; */
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;   
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.alert-box p {
+    margin: 10px 0;
+    font-size: 16px;
+    font-weight: 600;
+    color: white;
+    width: 250px;
+}
+
+.alert-box button {
+    background-color: #007bff;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    box-shadow: 0 0 3px white, 0 0 5pxpx white !important;
+    border: 2px double white;
+    transition: transform 0.5s ease-in-out !important;
+}
+
+.alert-box button:hover {
+    background-color: #0056b3;
+    box-shadow: 0 0 3px white, 0 0 10px white !important;
+}
+
+.alert-box button:active{
+    transform: scale(-1) !important;
+}
+
+/* Disable scrolling when alert is active */
+body.no-scroll {
+    overflow: hidden;
+}
+
+.btn{
+    background-color: #e44d26 !important;
+}
+ 
+.bton{
+    width: 480px !important;
+    margin-top: 10px !important;
+    padding: 15px !important;
+    background-color: #001aaf !important;
+    color: white !important;
+    transition: transform 0.5s ease-in-out !important;
+    border: 3px double white !important;
+    font-weight: 600 !important;
+    transform: translateX(5px); 
+    border-radius: 10px;
+}
+
+.bton:hover{
+    background-color: #00aaff !important;
+    transform: scale(1.05) !important;
+    color: #1a1a1a !important;
+    box-shadow: 0 0 2px white, 0 0 10px white;
+}
+
+.bton:active{
+    transform: scale(-1) !important;
+}
+
+@media (max-width: 991px) {
+    .buy-container{
+        width: auto;
+        height: auto;
+    }
+  .buy-hero h1 {
+    font-size: 28px;
+  }
+
+  .col-md-6{
+    text-align: center;
+    width: auto;
+    height: auto;
+    margin: 0 auto;
+  }
+
+  .buy-hero p {
+    width: 90%;
+    font-size: 16px;
+  }
+
+  .image-container {
+    text-align: center;
+    height: auto;
+    width: auto;
+    margin-left: 10px !important;
+  }
+
+  .bton {
+    width: 100% !important;
+  }
+  .col-md-6{
+    padding-left: unset !important;
+  }
+}
+
+@media (max-width: 767px) {
+    .col-md-6 p{
+        width: auto !important;
+        padding-bottom: 10px;
+        margin: 0 auto;
+    }
+  .row {
+    flex-direction: column;
+  }
+
+  .image-container,
+  #checkout-form {
+    width: 100% !important;
+    margin: 0 auto;
+    text-align: center;
+
+  }
+
+  #checkout-form {
+    padding: 15px;
+    text-align: center;
+    width: auto;
+    margin: 0 auto;
+    height: auto;
+  }
+
+  #product-image {
+    height: 100%;
+    object-fit: cover;
+    width: 100%;
+    margin: 0 auto;
+  }
+
+  .image-container{
+    width: 300px;
+    height: 350px;
+    margin: 0 auto;
+    text-align: center;
+  }
+
+  .buy-hero {
+    height: auto;
+    padding: 20px 10px;
+    width: 100%;
+    text-align: center;
+    margin: 0 auto;
+  }
+
+  .buy-hero h1,
+  .buy-container h1.proceed {
+    font-size: 24px;
+  }
+
+  .buy-hero p {
+    font-size: 15px;
+  }
+
+  .alert-box {
+    width: 90%;
+  }
+  .col-md-6 p{
+    width: auto;
+    margin: 0 auto;
+  }
+}
+
+@media (max-width: 480px) {
+  .buy-hero h1 {
+    font-size: 20px;
+  }
+
+  .buy-hero p {
+    font-size: 14px;
+  }
+
+  .bton,
+  .btn {
+    font-size: 16px;
+    padding: 10px !important;
+  }
+
+  #checkout-form button {
+    font-size: 16px;
+  }
+
+  .buy-container h1.proceed::after {
+    width: 80%;
+  }
+
+  .image-container{
+    width: auto;
+    height: auto;
+  }
+}
+</style>
+
+
+<body>
+    
+    <section class="buy-hero text-center bg-dark d-flex flex-column align-items-center justify-content-center">
+        <h1>Complete Your Purchase</h1>
+        <p>"You’ve taken every step toward your dream shoes—now, this is the last one. The perfect pair is waiting for you. Make your move and claim them today at Step Crafters!"</p>
+    </section>
+
+    <section>
+    <div class="buy-container mt-4">
+        <h1 class="proceed text-center">Proceed to Check Out</h1>
+         <section>
+        <div class="row">
+           
+            <div class="col-md-6 image-container">
+                <img id="product-image" src="" class="img-fluid" alt="Product Image">
+            </div>
+            <div class="col-md-6">
+                <h1 id="product-brand"></h1>
+                <h2 id="product-name"></h2>
+                <h3> Price: <span id="product-price"></span></h3>
+                <p>Selected Size: <span id="product-size"></span></p>
+                
+                <form id="checkout-form">
+                    <div class="mb-3">
+                        <label for="customer-name" class="form-label">Full Name</label>
+                        <input type="text" class="form-control" id="customer-name" placeholder="Enter your Name" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="customer-number" class="form-label">Contact Number</label>
+                        <input type="tel" class="form-control" id="customer-number" maxlength="11" placeholder="Enter your PhoneNumber" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="customer-address" class="form-label">Shipping Address</label>
+                        <textarea class="form-control" id="customer-address" placeholder="Brgy./City/Province or Country/zipcode"  rows="3" required></textarea>
+                    </div>
+                    <div class="mb-3">
+                        <label for="payment-method" class="form-label">Payment Method</label>
+                        <select class="form-select" id="payment-method" required onchange="togglePaymentInput()"> 
+                            <option value="cod">Cash on Delivery</option>
+                            <option value="credit-card">Credit Card</option>
+                            <option value="paypal">PayMaya</option>
+                            <option value="gcash">Gcash</option>
+                        </select>
+                    </div>
+
+                    <div class="mb-3" id="payment-number-container" style="display: none;">
+                        <label for="payment-number" class="form-label">Enter PayMaya Number</label>
+                        <input type="tel" class="form-control" maxlength="11" placeholder="09123456789" id="payment-number" required>
+                        <label for="payment-name" class="form-label">Enter PayMaya Name</label>
+                        <input type="text" class="form-control"  placeholder="Enter your Account Name" id="payment-name" required>
+                    </div>
+
+                    <div class="mb-3" id="gcash-number-container" style="display: none;">
+                        <label for="gcash-number" class="form-label">Enter Gcash Number</label>
+                        <input type="tel" class="form-control" maxlength="11" placeholder="09123456789" id="gcash-number" required>
+                        <label for="gcash-name" class="form-label">Enter Gcash Name</label>
+                        <input type="text" class="form-control"  placeholder="Enter your Account Name" id="gcash-name" required>
+                    </div>
+
+                    <div class="mb-3" id="credit-card-container" style="display: none;">
+                        <label for="credit-card-number" class="form-label">Enter Credit Card Account Number</label>
+                        <input type="text" class="form-control" maxlength="19" id="credit-card-number" placeholder="1234 5678 9012 3456" required>
+                        <label for="account-name" class="form-label">Enter Account Name</label>
+                        <input type="text" class="form-control" id="account-name" placeholder="Enter Your Account Name" required>
+                    </div>
+
+                <button onclick="confirmPurchase()" class="btn btn-primary w-100">Checkout</button>
+                </form>
+                <button onclick="goBack()" class="btn bton-primary w-100 ">Go Back</button>
+            </div>
+        </div>
+        </section>
+    </div>
+</section>
+
+    <footer class="text-center bg-black text-white p-3 mt-4">
+        <p>&copy; 2025 Step Crafters. All Rights Reserved.</p>
+    </footer>
+
+    <!-- Fullscreen Overlay to Block Everything -->
+<div id="overlay"></div>
+
+<!-- Custom Alert Box -->
+<div id="custom-alert" class="alert-box">
+    <p id="alert-message"></p>
+    <button id="alert-ok-btn">OK</button>
+</div>
+
+
+
+    <script>
+      window.onload = function () {
+    const urlParams = new URLSearchParams(window.location.search);
+
+    document.getElementById("product-brand").textContent = urlParams.get("brand"); // Display product brand
+    document.getElementById("product-name").textContent = urlParams.get("name");
+    document.getElementById("product-price").textContent = urlParams.get("price");
+    document.getElementById("product-size").textContent = urlParams.get("size");
+    document.getElementById("product-image").src = urlParams.get("image");
+};
+
+// Function to show the alert and completely block the page
+function showAlert(message) {
+    return new Promise((resolve) => {
+        // Set the alert message and display the alert box
+        document.getElementById("alert-message").textContent = message;
+        document.getElementById("custom-alert").style.display = "flex";
+        document.getElementById("overlay").style.display = "block"; // Show overlay to block interactions
+
+        // When the OK button is clicked, hide the alert and resolve the Promise
+        document.getElementById("alert-ok-btn").onclick = function () {
+            document.getElementById("custom-alert").style.display = "none";
+            document.getElementById("overlay").style.display = "none"; // Remove overlay
+            resolve(); // Only now does execution continue
+        };
+    });
+}
+
+async function confirmPurchase(event) {
+    event.preventDefault(); // Stop form submission
+
+    let name = document.getElementById("customer-name").value.trim();
+    let number = document.getElementById("customer-number").value.trim();
+    let address = document.getElementById("customer-address").value.trim();
+    let paymentMethod = document.getElementById("payment-method").value;
+    let paymentNumber = document.getElementById("payment-number")?.value.trim();
+    let paymentName = document.getElementById("payment-name")?.value.trim();
+    let gcashNumber = document.getElementById("gcash-number")?.value.trim();
+    let gcashName = document.getElementById("gcash-name")?.value.trim();
+    let creditCardNumber = document.getElementById("credit-card-number")?.value.trim();
+    let creditCardName = document.getElementById("account-name")?.value.trim();
+
+    // Validate required fields
+    if (!name && !number || !address && !number || !name && !address || (paymentMethod === "paypal") && (!paymentNumber || !paymentName) && !name || (paymentMethod === "paypal") && (!paymentNumber || !paymentName) && !number || (paymentMethod === "paypal") && (!paymentNumber || !paymentName) && !address || (paymentMethod === "gcash") && (!gcashName || !gcashNumber) && !name || (paymentMethod === "gcash") && (!gcashName || !gcashNumber) && !number || (paymentMethod === "gcash") && (!gcashName || !gcashNumber) && !address||paymentMethod === "credit-card" && (!creditCardNumber || !creditCardName) && !name || paymentMethod === "credit-card" && (!creditCardNumber || !creditCardName) && !number || paymentMethod === "credit-card" && (!creditCardNumber || !creditCardName) && !address) {
+        await showAlert("⚠️ Please fill in all required fields.");
+        return;
+    }
+
+    if (!name) {
+        await showAlert("⚠️ Please Enter your Name.");
+        return;
+    }
+
+    if (!number) {
+        await showAlert("⚠️ Please Enter your Number.");
+        return;
+    }
+
+    if (!address) {
+        await showAlert("⚠️ Please Enter your Address.");
+        return;
+    }
+
+    if (!name || !number || !address) {
+        await showAlert("⚠️ Please fill in all required fields.");
+        return;
+    }
+
+    if ((paymentMethod === "paypal") && (!paymentNumber || !paymentName)) {
+        await showAlert("⚠️ Please enter your PayMaya details.");
+        return;
+    }
+
+    if ((paymentMethod === "gcash") && (!gcashName || !gcashNumber)) {
+        await showAlert("⚠️ Please enter your Gcash details.");
+        return;
+    }
+
+    if (paymentMethod === "credit-card" && (!creditCardNumber || !creditCardName)) {
+        await showAlert("⚠️ Please enter your Credit Card details.");
+        return;
+    }
+
+    // Calculate estimated delivery date (1 to 7 days from today)
+    let minDays = 1;
+    let maxDays = 7;
+    let deliveryDate = new Date();
+    deliveryDate.setDate(deliveryDate.getDate() + Math.floor(Math.random() * (maxDays - minDays + 1)) + minDays);
+    let formattedDeliveryDate = deliveryDate.toLocaleDateString("en-US", {
+    weekday: 'long',
+    year: 'numeric',
+    month: 'long',
+    day: 'numeric'
+});
+
+
+    // Retrieve product details
+    const product = {
+        brand: document.getElementById("product-brand").textContent,
+        name: document.getElementById("product-name").textContent,
+        price: document.getElementById("product-price").textContent,
+        size: document.getElementById("product-size").textContent,
+        image: document.getElementById("product-image").src,
+        customerName: name,
+        contactNumber: number,
+        address: address,
+        paymentMethod: paymentMethod,
+        paymentNumber: paymentNumber || "",
+        paymentName: paymentName || "",
+        gcashNumber: gcashNumber || "",
+        gcashName: gcashName || "",
+        creditCardNumber: creditCardNumber || "",
+        creditCardName: creditCardName || "",
+        deliveryDate: formattedDeliveryDate // Store estimated delivery date
+    };
+
+    // Store product in localStorage
+    let orders = JSON.parse(localStorage.getItem("orders")) || [];
+    orders.push(product);
+    localStorage.setItem("orders", JSON.stringify(orders));
+
+    // Show success alert
+    await showAlert("✅ Order successfully placed! THANK YOU FOR BUYING! COME AGAIN!");
+
+    // Redirect to order.html
+    window.location.href = "order.html";
+}
+
+async function goBack(event){
+   await showAlert("😞Oh you changed your mind? Going back to product page...");
+
+// Redirect to order.html
+    window.location.href = "product.html";
+    }
+
+// Attach event listener to the Confirm Purchase button
+document.querySelector(".btn-primary").addEventListener("click", confirmPurchase);
+
+        function togglePaymentInput() {
+        const paymentMethod = document.getElementById("payment-method").value;
+        const gcashNumberContainer = document.getElementById("gcash-number-container");
+        const paymentNumberContainer = document.getElementById("payment-number-container");
+        const creditCardContainer = document.getElementById("credit-card-container");
+
+        if (paymentMethod === "gcash") {
+            gcashNumberContainer.style.display = "block";
+            paymentNumberContainer.style.display = "none";
+            creditCardContainer.style.display = "none";
+        }
+       else if (paymentMethod === "paypal") {
+        gcashNumberContainer.style.display = "none";
+            paymentNumberContainer.style.display = "block";
+            creditCardContainer.style.display = "none";
+        } else if (paymentMethod === "credit-card") {
+            gcashNumberContainer.style.display = "none";
+            creditCardContainer.style.display = "block";
+            paymentNumberContainer.style.display = "none";
+        } else {
+            gcashNumberContainer.style.display = "none";
+            paymentNumberContainer.style.display = "none";
+            creditCardContainer.style.display = "none";
+        }
+    }
+
+    document.getElementById("customer-number").addEventListener("input", function () {
+    this.value = this.value.replace(/\D/g, ""); // Remove non-numeric characters
+});
+
+document.getElementById("payment-number").addEventListener("input", function () {
+    this.value = this.value.replace(/\D/g, ""); // Remove non-numeric characters
+});
+
+document.getElementById("gcash-number").addEventListener("input", function () {
+    this.value = this.value.replace(/\D/g, ""); // Remove non-numeric characters
+});
+
+document.getElementById("credit-card-number").addEventListener("input", function (e) {
+    let value = e.target.value.replace(/\D/g, ""); // Remove non-numeric characters
+    value = value.replace(/(.{4})/g, "$1 ").trim(); // Add space every 4 digits
+    e.target.value = value;
+});
+
+document.addEventListener("DOMContentLoaded", function () {
+    // Page fade-in animation
+    gsap.from("body", {
+        opacity: 0,
+        duration: 0.8,
+        ease: "power2.out"
+    });
+
+    // Header animation
+    gsap.from("header", {
+        opacity: 0,
+        y: -20,
+        duration: 1,
+        delay: 0.2,
+        ease: "power3.out"
+    });
+
+    // About Hero Section Animation
+    gsap.from(".about-hero", {
+        opacity: 0,
+        scale: 0.9,
+        duration: 1.2,
+        delay: 0.4,
+        ease: "power3.out"
+    });
+
+    // Section animations
+    gsap.utils.toArray("section").forEach((section, index) => {
+        gsap.from(section, {
+            opacity: 0,
+            y: 50,
+            duration: 1,
+            delay: 0.5 + index * 0.3,
+            ease: "power3.out",
+            scrollTrigger: {
+                trigger: section,
+                start: "top 80%",
+                toggleActions: "play none none none"
+            }
+        });
+    });
+
+    // Footer animation
+    gsap.fromTo("footer", 
+        { opacity: 0, y: 20 }, 
+        { opacity: 1, y: 0, duration: 1, delay: 1, ease: "power3.out" }
+    );
+});
+
+    </script>
+</body>
+</html>
