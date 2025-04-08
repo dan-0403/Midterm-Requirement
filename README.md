@@ -1,2 +1,2 @@
-# Midterm-Requirement
+# Briñosa-Midterm-Requirement
 Online Shoe Business Website
